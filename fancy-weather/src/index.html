@@ -8,10 +8,34 @@
     />
     <meta name="author" lang="en" content="Arslan Tadjiev" />
     <title>Fancy-weather</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
       <main>
+            <div class="buttons-block">
+                <button class="btn" style="margin-right: 2vw;"><i class="fa fa-refresh"></i></button>
+                <select class="btn" style="margin-right: 2vw;">
+                    <option value="en">Eng</option>
+                    <option value="rus">Rus</option>
+                    <option value="be">Bel</option>
+                  </select>
+                <div class="degree">
+                    <button class="btn btn-f active">&#8457;</button>
+                    <button class="btn btn-c">&#8451;</button>
+                </div>
+            </div>
+            <div class="search-block">
+                <form>
+                    <input type="search" autocomplete="off" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="weather-block">
 
+            </div>
+            <div class="map-block">
+
+            </div>
       </main>
   </body>
 </html>
