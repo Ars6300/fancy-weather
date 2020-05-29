@@ -8,34 +8,78 @@
     />
     <meta name="author" lang="en" content="Arslan Tadjiev" />
     <title>Fancy-weather</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-      <main>
-            <div class="buttons-block">
-                <button class="btn" style="margin-right: 2vw;"><i class="fa fa-refresh"></i></button>
-                <select class="btn" style="margin-right: 2vw;">
-                    <option value="en">Eng</option>
-                    <option value="rus">Rus</option>
-                    <option value="be">Bel</option>
-                  </select>
-                <div class="degree">
-                    <button class="btn btn-f active">&#8457;</button>
-                    <button class="btn btn-c">&#8451;</button>
-                </div>
+    <main>
+      <div class="buttons-block">
+        <button class="btn" style="margin-right: 2vw;">
+          <i class="fa fa-refresh"></i>
+        </button>
+        <select class="btn" style="margin-right: 2vw;">
+          <option value="en">Eng</option>
+          <option value="rus">Rus</option>
+          <option value="be">Bel</option>
+        </select>
+        <div class="degree">
+          <button class="btn btn-f active">&#8457;</button>
+          <button class="btn btn-c">&#8451;</button>
+        </div>
+      </div>
+      <div class="search-block">
+        <form>
+          <input
+            type="search"
+            autocomplete="off"
+            placeholder="Search.."
+            name="search"
+          />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <div class="weather-block">
+        <div class="today">
+          <div class="locale">
+            <h1>Tashkent, Uzbekistan</h1>
+            <h3>Mon 28 March 17:23:12</h3>
+          </div>
+          <div class="today-main">
+            <p class="main-degree">21&#176;</p>
+            <img src="./img/day.svg" alt="weather icon" id="weather-icon">
+            <div id="details">
+                <p>Good</p>
+                <p>Very Good</p>
+                <p>Somehow good</p>
+                <p>Very very good</p>
             </div>
-            <div class="search-block">
-                <form>
-                    <input type="search" autocomplete="off" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
+          </div>
+        </div>
+        <div class="forecast">
+            <div class="forecast-element">
+                <p class="name">Tuesday</p>
+                <p class="deg">25&#176;</p>
+                <img src="./img/day.svg" alt="Weather icon" class="small-icon">
             </div>
-            <div class="weather-block">
-
+            <div class="forecast-element">
+                <p class="name">Tuesday</p>
+                <p class="deg">25&#176;</p>
+                <img src="./img/day.svg" alt="Weather icon" class="small-icon">
             </div>
-            <div class="map-block">
-
+            <div class="forecast-element">
+                <p class="name">Tuesday</p>
+                <p class="deg">25&#176;</p>
+                <img src="./img/day.svg" alt="Weather icon" class="small-icon">
             </div>
-      </main>
+        </div>
+      </div>
+      <div class="map-block"></div>
+    </main>
   </body>
 </html>
