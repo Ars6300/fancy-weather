@@ -16,6 +16,10 @@
       href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main>
@@ -47,39 +51,29 @@
       <div class="weather-block">
         <div class="today">
           <div class="locale">
-            <h1>Tashkent, Uzbekistan</h1>
-            <h3>Mon 28 March 17:23:12</h3>
+            <h1></h1>
+            <h3></h3>
           </div>
           <div class="today-main">
-            <p class="main-degree">21&#176;</p>
-            <img src="./img/day.svg" alt="weather icon" id="weather-icon">
+            <p class="main-degree"></p>
+            <i id="weather-icon"></i>
             <div id="details">
-                <p>Good</p>
-                <p>Very Good</p>
-                <p>Somehow good</p>
-                <p>Very very good</p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
             </div>
           </div>
         </div>
-        <div class="forecast">
-            <div class="forecast-element">
-                <p class="name">Tuesday</p>
-                <p class="deg">25&#176;</p>
-                <img src="./img/day.svg" alt="Weather icon" class="small-icon">
-            </div>
-            <div class="forecast-element">
-                <p class="name">Tuesday</p>
-                <p class="deg">25&#176;</p>
-                <img src="./img/day.svg" alt="Weather icon" class="small-icon">
-            </div>
-            <div class="forecast-element">
-                <p class="name">Tuesday</p>
-                <p class="deg">25&#176;</p>
-                <img src="./img/day.svg" alt="Weather icon" class="small-icon">
-            </div>
+        <div class="forecast"></div>
+      </div>
+      <div class="map-block">
+        <div id="map"></div>
+        <div id="location">
+          <p>Lat</p>
+          <p>Lon</p>
         </div>
       </div>
-      <div class="map-block"></div>
     </main>
   </body>
 </html>
