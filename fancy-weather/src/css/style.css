@@ -23,6 +23,21 @@ main {
   grid-gap: 1vh;
 }
 
+.loader {
+  position: fixed;
+  z-index: 5;
+  outline: solid #000 50vw;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: visibility 0.2s linear, opacity 0.2s linear;
+  -moz-transition: visibility 0.2s linear, opacity 0.2s linear;
+  -o-transition: visibility 0.2s linear, opacity 0.2s linear;
+  transition: visibility 0.2s linear, opacity 0.2s linear;
+}
+
 .buttons-block,
 .search-block {
   display: flex;
