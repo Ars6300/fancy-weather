@@ -9,8 +9,17 @@ body {
   align-items: center;
   height: 100vh;
   width: 100%;
+  background-image: url('../img/background.jpg');
   background-color: #000;
   font-family: "Ubuntu", sans-serif;
+}
+
+.shadow {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
 }
 
 main {
@@ -42,18 +51,21 @@ main {
 .search-block {
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 
 .weather-block {
   display: grid;
   grid-template-rows: 3fr 1fr;
   font-size: 1.5vw;
+  z-index: 1;
 }
 
 .map-block {
   display: grid;
   grid-template-rows: 8fr 1fr;
   position: relative;
+  z-index: 1;
 }
 
 .btn {
@@ -105,7 +117,6 @@ div.search-block > form > button {
 }
 
 .today {
-  background-color: #000;
   width: 100%;
   font-size: 0.9em;
   display: flex;

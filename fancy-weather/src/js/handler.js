@@ -50,7 +50,7 @@ async function getWeatherForecast(city, measure, lang) {
       result.push(day);
     }
   } catch (e) {
-    return e.message + 1;
+    return e.message;
   }
   return result;
 }

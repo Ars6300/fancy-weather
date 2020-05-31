@@ -4,6 +4,7 @@ import getLocation from './location';
 import { getWeatherForecast, getCurrentWeather } from './handler';
 import { putTodayWeather, putForecastWeather } from './render';
 import setMap from './map';
+import setImage from './background';
 
 const loader = document.querySelector('body > img');
 const searchForm = document.querySelector('body > main > div.search-block > form');
@@ -12,17 +13,21 @@ const fahrenheit = document.querySelector('body > main > div.buttons-block > div
 const celsius = document.querySelector('body > main > div.buttons-block > div > button.btn.btn-c');
 const tempSelector = document.querySelector('body > main > div.buttons-block > div');
 const langSelector = document.querySelector('body > main > div.buttons-block > select');
+const updateImage = document.querySelector('body > main > div.buttons-block > button');
 let measure;
 let cityName;
 let language;
+let dayOrNight;
 
 async function setWeatherByCity(city) {
   await getCurrentWeather(city, measure, language).then((ans) => {
     if (typeof ans === 'string') {
       alert(ans);
     } else {
+      dayOrNight = ans.dayOrNight === 'd' ? 'day' : 'night';
       putTodayWeather(ans, language);
       setMap(ans.lat, ans.lon);
+      setImage(ans.description, dayOrNight);
     }
   });
   await getWeatherForecast(city, measure, language).then((answer) => {
@@ -104,4 +109,5 @@ document.addEventListener('DOMContentLoaded', () => {
   searchForm.addEventListener('submit', (e) => submitForm(e));
   tempSelector.addEventListener('click', (e) => selectMeasure(e));
   langSelector.addEventListener('change', (e) => selectLanguage(e));
+  updateImage.addEventListener('click', () => setImage(cityName, dayOrNight));
 });
