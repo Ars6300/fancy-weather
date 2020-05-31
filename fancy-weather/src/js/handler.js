@@ -10,8 +10,8 @@ const langCode = {
 const getDate = (date, lang) => new Date(Date.parse(date.substring(0, 10))).toLocaleString(langCode[lang], { weekday: 'short', day: 'numeric', month: 'long' });
 const getDay = (date, lang) => new Date(Date.parse(date.substring(0, 10))).toLocaleString(langCode[lang], { weekday: 'long' });
 
-async function getCurrentWeather(city, lang) {
-  const url = `https://api.weatherbit.io/v2.0/current?city=${city}&units=M&lang=${lang}&key=d670cbf8d57c44dba4768427624689af`;
+async function getCurrentWeather(city, measure, lang) {
+  const url = `https://api.weatherbit.io/v2.0/current?city=${city}&units=${measure}&lang=${lang}&key=d670cbf8d57c44dba4768427624689af`;
   try {
     const res = await fetch(url);
     if (!res.ok) { res.text().then((text) => { throw Error(text); }); }
@@ -38,8 +38,8 @@ async function getCurrentWeather(city, lang) {
   }
 }
 
-async function getWeatherForecast(city, lang) {
-  const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&days=4&units=M&lang=${lang}&key=d670cbf8d57c44dba4768427624689af`;
+async function getWeatherForecast(city, measure, lang) {
+  const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&days=4&units=${measure}&lang=${lang}&key=d670cbf8d57c44dba4768427624689af`;
   const result = [];
   try {
     const res = await fetch(url);

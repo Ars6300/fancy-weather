@@ -35,7 +35,7 @@ main {
   -webkit-transition: visibility 0.2s linear, opacity 0.2s linear;
   -moz-transition: visibility 0.2s linear, opacity 0.2s linear;
   -o-transition: visibility 0.2s linear, opacity 0.2s linear;
-  transition: visibility 0.2s linear, opacity 0.2s linear;
+  transition: visibility 2s linear, opacity 2s linear;
 }
 
 .buttons-block,
@@ -238,6 +238,7 @@ div.search-block > form > button {
   #weather-icon {
     bottom: 0;
     font-size: 20vw;
+    left: 37%;
   }
   .forecast-element {
     grid-template-rows: 1fr 3fr;
