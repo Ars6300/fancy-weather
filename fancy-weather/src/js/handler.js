@@ -1,15 +1,6 @@
 import { countries } from 'country-data';
 import Day from './weather';
 
-const langCode = {
-  en: 'en-us',
-  ru: 'ru-ru',
-  be: 'be-be',
-};
-
-const getDate = (date, lang) => new Date(Date.parse(date.substring(0, 10))).toLocaleString(langCode[lang], { weekday: 'short', day: 'numeric', month: 'long' });
-const getDay = (date, lang) => new Date(Date.parse(date.substring(0, 10))).toLocaleString(langCode[lang], { weekday: 'long' });
-
 async function getCurrentWeather(city, measure, lang) {
   const url = `https://api.weatherbit.io/v2.0/current?city=${city}&units=${measure}&lang=${lang}&key=d670cbf8d57c44dba4768427624689af`;
   try {
@@ -20,8 +11,7 @@ async function getCurrentWeather(city, measure, lang) {
     const day = new Day(
       src.city_name,
       countries[src.country_code].name,
-      getDate(src.datetime, lang),
-      getDay(src.datetime, lang),
+      src.datetime,
       src.lat,
       src.lon,
       Math.round(src.temp),
@@ -49,8 +39,7 @@ async function getWeatherForecast(city, measure, lang) {
       const day = new Day(
         data.city_name,
         countries[data.country_code].name,
-        getDate(data.data[i].valid_date, lang),
-        getDay(data.data[i].valid_date, lang),
+        data.data[i].valid_date,
         data.lat,
         data.lon,
         Math.round(data.data[i].temp),

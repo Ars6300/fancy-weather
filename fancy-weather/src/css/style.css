@@ -130,7 +130,7 @@ div.search-block > form > button {
 
 #weather-icon {
   position: absolute;
-  left: 43%;
+  left: 44%;
   font-size: 12vw;
   transform: translate(-35%, -28%);
 }
@@ -236,9 +236,9 @@ div.search-block > form > button {
     font-size: 1.2em;
   }
   #weather-icon {
-    bottom: 0;
+    bottom: -5vw;
     font-size: 20vw;
-    left: 37%;
+    left: 49%;
   }
   .forecast-element {
     grid-template-rows: 1fr 3fr;
@@ -261,9 +261,13 @@ div.search-block > form > button {
   }
   #weather-icon {
     transform: translate(0%, 0%) !important;
-    bottom: 4%;
+    bottom: 0;
+    left: 43%;
   }
   .main-degree {
     font-size: 30vw;
+  }
+  #details{
+    font-size: 1em;
   }
 }
