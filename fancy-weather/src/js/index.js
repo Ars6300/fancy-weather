@@ -14,15 +14,23 @@ const celsius = document.querySelector('body > main > div.buttons-block > div > 
 const tempSelector = document.querySelector('body > main > div.buttons-block > div');
 const langSelector = document.querySelector('body > main > div.buttons-block > select');
 const updateImage = document.querySelector('body > main > div.buttons-block > button');
+const closeErrorbtn = document.getElementById('close-btn');
+const messageBlock = document.getElementById('message-block');
+const messageText = document.getElementById('error');
 let measure;
 let cityName;
 let language;
 let dayOrNight;
 
+function setError(message) {
+  messageBlock.classList.remove('hidden-error');
+  messageText.innerHTML = message;
+}
+
 async function setWeatherByCity(city) {
   await getCurrentWeather(city, measure, language).then((ans) => {
     if (typeof ans === 'string') {
-      alert(ans);
+      setError(ans);
     } else {
       dayOrNight = ans.dayOrNight === 'd' ? 'day' : 'night';
       putTodayWeather(ans, language);
@@ -32,7 +40,7 @@ async function setWeatherByCity(city) {
   });
   await getWeatherForecast(city, measure, language).then((answer) => {
     if (typeof answer === 'string') {
-      alert(answer);
+      setError(answer);
     } else {
       putForecastWeather(answer, language);
     }
@@ -98,16 +106,25 @@ function selectLanguage(e) {
   setWeatherByCity(cityName).then(loader.classList.add('hidden'));
 }
 
+function getLocationAndWeather() {
+  getLocation().then((res) => {
+    if (typeof res === 'string') {
+      setError(res);
+    } else {
+      cityName = res.city;
+      setWeatherByCity(cityName).then(loader.classList.add('hidden'));
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   loader.classList.remove('hidden');
   setMeasurement();
   setLanguage();
-  getLocation().then((res) => {
-    cityName = res.city;
-    setWeatherByCity(cityName).then(loader.classList.add('hidden'));
-  });
+  getLocationAndWeather();
   searchForm.addEventListener('submit', (e) => submitForm(e));
   tempSelector.addEventListener('click', (e) => selectMeasure(e));
   langSelector.addEventListener('change', (e) => selectLanguage(e));
   updateImage.addEventListener('click', () => setImage(cityName, dayOrNight));
+  closeErrorbtn.addEventListener('click', () => messageBlock.classList.add('hidden-error'));
 });

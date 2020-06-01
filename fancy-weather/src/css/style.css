@@ -36,7 +36,7 @@ main {
 .loader {
   position: fixed;
   z-index: 5;
-  outline: solid #000 50vw;
+  outline: solid #000 100vw;
 }
 
 .hidden {
@@ -192,6 +192,49 @@ div.search-block > form > button {
   align-items: end;
 }
 
+#message-block {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background: #0008;
+  z-index: 2;
+}
+
+#message {
+  position: absolute;
+  background-color: #2d303a;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 9px;
+  width: 30vw;
+  height: 30vh;
+  top: calc(50% - 20vh);
+  left: calc(50% - 15vw);
+  font-family: "Lato-Regular";
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+#message p {
+  width: 81%;
+  max-height: 13vh;
+}
+#message button {
+  width: 20%;
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.hidden-error {
+  opacity: 0;
+  visibility: hidden;
+}
 @media only screen and (max-width: 768px) {
   body {
     height: 120vh;
@@ -227,6 +270,10 @@ div.search-block > form > button {
   }
   .deg {
     font-size: 7vw;
+  }
+  #message{
+    width: 70vw;
+    left: calc(10% - 0vw);
   }
 }
 
@@ -273,7 +320,7 @@ div.search-block > form > button {
   }
   #weather-icon {
     transform: translate(0%, 0%) !important;
-    bottom: 0;
+    bottom: 3%;
     left: 43%;
   }
   .main-degree {
