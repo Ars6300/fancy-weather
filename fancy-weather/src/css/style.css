@@ -14,6 +14,10 @@ body {
   font-family: "Ubuntu", sans-serif;
 }
 
+.body-transition {
+  transition: 2s ease-in-out;
+}
+
 .shadow {
   position: fixed;
   width: 100%;

@@ -21,14 +21,14 @@ function preloadImage(url, anImageLoadedCallback) {
 }
 
 function setImage(key, key1) {
-  getImageLink(key, key1).then((ans) => {
-    if (!ans.includes('unsplash')) {
-      alert(ans);
+  getImageLink(key, key1).then((res) => {
+    if (!res.includes('unsplash')) {
+      alert(res);
     } else {
       console.log(`Search for background image: ${key}, ${key1}`);
-      body.style.transition = '2s ease-in-out';
-      preloadImage(ans, () => {
-        body.style.backgroundImage = `url(${ans})`;
+      body.classList.add('body-transition');
+      preloadImage(res, () => {
+        body.style.backgroundImage = `url(${res})`;
       });
     }
   });
