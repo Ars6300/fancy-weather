@@ -17,14 +17,14 @@ const symbols = {
 };
 
 export default class Day {
-  constructor(city, country, date, lat, lon, temp,
+  constructor(city, country, date, lat, lon, temperature,
     icon, description, wind, feels, humidity, dayOrNight) {
     this.city = city;
     this.country = country;
     this.date = date;
     this.lat = lat;
     this.lon = lon;
-    this.temp = temp;
+    this.temperature = temperature;
     this.icon = icon;
     this.description = description;
     this.wind = wind;
@@ -40,7 +40,7 @@ export default class Day {
       date: getDate(this.date, lang),
       lat: `${langLat[lang]}: ${this.lat}`,
       lon: `${langLon[lang]}: ${this.lon}`,
-      temp: `${this.temp}${symbols.celsius}`,
+      temp: `${this.temperature}${symbols.celsius}`,
       icon: `${symbols.owfont} ${symbols.owfont}-${this.icon}-${this.dayOrNight} ${symbols.owfont}-5x`,
       description: this.description,
       wind: `${langWind[lang]}: ${this.wind}`,
@@ -53,7 +53,7 @@ export default class Day {
   getForecastWeather(lang) {
     return {
       day: getDay(this.date, lang),
-      temp: `${this.temp}${symbols.celsius}`,
+      temp: `${this.temperature}${symbols.celsius}`,
       icon: `${symbols.owfont} ${symbols.owfont}-${this.icon} ${symbols.owfont}-3x`,
     };
   }
