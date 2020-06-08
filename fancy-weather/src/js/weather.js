@@ -10,6 +10,12 @@ const getDay = (date, lang) => {
   return new Date(Date.parse(date.substring(0, 10))).toLocaleString(langCode[lang], { weekday: 'long' });
 };
 
+const symbols = {
+  celsius: '&#176;',
+  percent: '%',
+  owfont: 'owf',
+};
+
 export default class Day {
   constructor(city, country, date, lat, lon, temp,
     icon, description, wind, feels, humidity, dayOrNight) {
@@ -34,12 +40,12 @@ export default class Day {
       date: getDate(this.date, lang),
       lat: `${langLat[lang]}: ${this.lat}`,
       lon: `${langLon[lang]}: ${this.lon}`,
-      temp: `${this.temp}&#176;`,
-      icon: `owf owf-${this.icon}-${this.dayOrNight} owf-5x`,
+      temp: `${this.temp}${symbols.celsius}`,
+      icon: `${symbols.owfont} ${symbols.owfont}-${this.icon}-${this.dayOrNight} ${symbols.owfont}-5x`,
       description: this.description,
       wind: `${langWind[lang]}: ${this.wind}`,
-      feels: `${langFeel[lang]}: ${this.feels}&#176;`,
-      humidity: `${langHum[lang]}: ${this.humidity}%`,
+      feels: `${langFeel[lang]}: ${this.feels}${symbols.celsius}`,
+      humidity: `${langHum[lang]}: ${this.humidity}${symbols.percent}`,
       time: this.dayOrNight,
     };
   }
@@ -47,8 +53,8 @@ export default class Day {
   getForecastWeather(lang) {
     return {
       day: getDay(this.date, lang),
-      temp: `${this.temp}&#176;`,
-      icon: `owf owf-${this.icon} owf-3x`,
+      temp: `${this.temp}${symbols.celsius}`,
+      icon: `${symbols.owfont} ${symbols.owfont}-${this.icon} ${symbols.owfont}-3x`,
     };
   }
 }
